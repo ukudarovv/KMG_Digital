@@ -1,0 +1,25 @@
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding: 8px 14px;
+  border-radius: var(--kmg-radius-sm);
+  background: var(--kmg-white);
+  border: 1px solid var(--kmg-gray-200);
+  color: var(--kmg-navy-800);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: var(--kmg-shadow-sm);
+  transition:
+    background var(--kmg-transition),
+    border-color var(--kmg-transition),
+    transform var(--kmg-transition);
+}
+
+.back-link:hover {
+  background: var(--kmg-green-100);
+  border-color: var(--kmg-green-300);
+  transform: translateX(-2px);
+}

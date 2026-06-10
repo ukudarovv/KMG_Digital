@@ -1,0 +1,115 @@
+.nudge-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #d9e2ec;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.nudge-card--active {
+  border-color: #0b7a3b;
+  box-shadow: 0 12px 30px rgba(11, 122, 59, 0.14);
+}
+
+.nudge-card--completed {
+  background: #fbfffd;
+}
+
+.nudge-card--future {
+  border-style: dashed;
+  border-color: #93c5fd;
+  background: #f8fbff;
+  cursor: not-allowed;
+  opacity: 0.82;
+}
+
+.nudge-card--future .nudge-card__day {
+  background: #dbeafe;
+  color: #0b5cab;
+}
+
+.nudge-card--future .nudge-card__header strong {
+  background: #dbeafe;
+  color: #0b5cab;
+}
+
+.nudge-card--loading {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.nudge-card--clickable {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nudge-card--clickable:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.nudge-card--clickable:focus-visible {
+  outline: 2px solid #0b7a3b;
+  outline-offset: 2px;
+}
+
+.nudge-card__day {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: #e8f8ef;
+  color: #0b7a3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 800;
+}
+
+.nudge-card--active .nudge-card__day {
+  background: #0b7a3b;
+  color: #ffffff;
+}
+
+.nudge-card__content {
+  flex: 1;
+}
+
+.nudge-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.nudge-card__header h3 {
+  margin: 0;
+  color: #071f35;
+  font-size: 17px;
+}
+
+.nudge-card__header strong {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #e8f8ef;
+  color: #0b7a3b;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.nudge-card p {
+  margin: 8px 0 12px;
+  color: #52616b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.nudge-card__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-size: 13px;
+}

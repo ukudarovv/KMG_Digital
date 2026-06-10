@@ -1,0 +1,281 @@
+.nudge-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px 24px;
+}
+
+.nudge-popup__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 31, 53, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.nudge-popup__scene {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  width: min(760px, 100%);
+  z-index: 1;
+}
+
+.nudge-popup__buddy-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 12px;
+  margin-bottom: 28px;
+  z-index: 2;
+}
+
+.nudge-popup__speech-bubble {
+  position: relative;
+  max-width: 150px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 16px 16px 16px 4px;
+  background: #ffffff;
+  border: 1px solid #c7efd8;
+  box-shadow: 0 10px 24px rgba(7, 31, 53, 0.12);
+  animation: nudgeBubbleIn 0.55s ease-out 0.35s both;
+}
+
+.nudge-popup__speech-bubble span {
+  display: block;
+  color: #0b7a3b;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.nudge-popup__speech-bubble::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  bottom: -8px;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-right: 1px solid #c7efd8;
+  border-bottom: 1px solid #c7efd8;
+  transform: rotate(45deg);
+}
+
+.nudge-popup__window {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: 26px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 24px 70px rgba(7, 31, 53, 0.3);
+  animation: nudgePopupIn 0.35s ease;
+}
+
+.nudge-popup__brand-logo {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+}
+
+@keyframes nudgePopupIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes nudgeBubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nudge-popup__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nudge-popup__close:hover {
+  background: #e2e8f0;
+}
+
+.nudge-popup__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-right: 40px;
+  margin-bottom: 16px;
+}
+
+.nudge-popup__header-text {
+  flex: 1;
+  padding-left: 82px;
+  min-height: 72px;
+}
+
+.nudge-popup__header span {
+  color: #0b7a3b;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.nudge-popup__header p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.nudge-popup__header h2 {
+  margin: 6px 0 0;
+  color: #071f35;
+  font-size: 24px;
+}
+
+.nudge-popup__card {
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #e8f8ef;
+  border: 1px solid #c7efd8;
+}
+
+.nudge-popup__card span {
+  display: block;
+  margin-bottom: 8px;
+  color: #0b7a3b;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.nudge-popup__card p {
+  margin: 0 0 14px;
+  color: #071f35;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.nudge-popup__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #52616b;
+  font-size: 14px;
+}
+
+.nudge-popup__notice {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fff7e6;
+  color: #8a5300;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.nudge-popup__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.nudge-popup__button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.nudge-popup__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.nudge-popup__button--secondary {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.nudge-popup__button--primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0b7a3b;
+  color: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .nudge-popup {
+    padding-top: 24px;
+  }
+
+  .nudge-popup__scene {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nudge-popup__buddy-panel {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 8px;
+    margin-right: 0;
+    margin-bottom: -8px;
+  }
+
+  .nudge-popup__speech-bubble {
+    margin-bottom: 0;
+    max-width: 180px;
+    border-radius: 16px 16px 4px 16px;
+  }
+
+  .nudge-popup__speech-bubble::after {
+    left: auto;
+    right: -8px;
+    bottom: 22px;
+    border: none;
+    border-top: 1px solid #c7efd8;
+    border-right: 1px solid #c7efd8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nudge-popup__speech-bubble,
+  .nudge-popup__window {
+    animation: none;
+  }
+}

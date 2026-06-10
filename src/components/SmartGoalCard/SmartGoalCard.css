@@ -1,0 +1,91 @@
+.smart-goal-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.smart-goal-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: #e8f8ef;
+  color: #0b7a3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.smart-goal-card--draft .smart-goal-card__icon {
+  background: #fff7e6;
+  color: #b26a00;
+}
+
+.smart-goal-card--needs_update .smart-goal-card__icon {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.smart-goal-card__content {
+  flex: 1;
+}
+
+.smart-goal-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.smart-goal-card__header h3 {
+  margin: 0;
+  color: #071f35;
+  font-size: 17px;
+}
+
+.smart-goal-card__header span {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #e8f8ef;
+  color: #0b7a3b;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.smart-goal-card--draft .smart-goal-card__header span {
+  background: #fff7e6;
+  color: #b26a00;
+}
+
+.smart-goal-card--needs_update .smart-goal-card__header span {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.smart-goal-card p {
+  margin: 8px 0 12px;
+  color: #52616b;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.smart-goal-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.smart-goal-card__details div {
+  display: flex;
+  gap: 6px;
+  color: #52616b;
+  font-size: 13px;
+}
+
+.smart-goal-card__details strong {
+  color: #071f35;
+}

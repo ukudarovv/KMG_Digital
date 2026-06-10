@@ -1,0 +1,11 @@
+node_modules
+dist
+backend
+.git
+.env
+.env.*
+!.env.example
+_docs_extract.txt
+*.md
+!README.md
+agent-transcripts

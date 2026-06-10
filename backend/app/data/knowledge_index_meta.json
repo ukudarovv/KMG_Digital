@@ -1,0 +1,14 @@
+{
+  "last_indexed_at": "2026-06-09T23:41:41.880995+00:00",
+  "chunks_count": 48,
+  "indexed_documents": [
+    "KMG-VND-6677",
+    "KMG-DI-6241",
+    "KMG-TZ-2024"
+  ],
+  "ocr_documents": [],
+  "seed_fallback_codes": [
+    "KMG-PR-1186",
+    "KMG-VND-4071"
+  ]
+}
