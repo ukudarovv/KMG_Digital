@@ -47,7 +47,7 @@ export function DigitalBuddyWidget() {
         </div>
       )}
 
-      <DigitalBuddyChat isOpen={isChatOpen} onClose={closeChat} />
+      {isChatOpen && <DigitalBuddyChat onClose={closeChat} />}
     </>
   );
 }

@@ -88,8 +88,15 @@ class RecruitingAiService:
     def _fallback_parse(text: str) -> dict:
         email_match = re.search(r"[\w.+-]+@[\w-]+\.[\w.]+", text)
         phone_match = re.search(r"(?:\+7|8)[\s(-]*\d{3}[\s)-]*\d{3}[\s-]*\d{2}[\s-]*\d{2}", text)
+        service_line = re.compile(
+            r"^(обновлено|резюме|curriculum|cv\b|стр\.|страница|№)", re.IGNORECASE
+        )
         first_line = next(
-            (line.strip() for line in text.splitlines() if line.strip()),
+            (
+                line.strip()
+                for line in text.splitlines()
+                if line.strip() and not service_line.match(line.strip())
+            ),
             "Кандидат",
         )
         return {

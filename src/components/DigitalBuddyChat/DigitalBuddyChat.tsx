@@ -29,11 +29,10 @@ type ChatMessage = {
 };
 
 type DigitalBuddyChatProps = {
-  isOpen: boolean;
   onClose: () => void;
 };
 
-export function DigitalBuddyChat({ isOpen, onClose }: DigitalBuddyChatProps) {
+export function DigitalBuddyChat({ onClose }: DigitalBuddyChatProps) {
   const { language, setLanguage, pendingPrompt, clearPendingPrompt } =
     useDigitalBuddy();
   const [messageText, setMessageText] = useState("");
@@ -43,12 +42,8 @@ export function DigitalBuddyChat({ isOpen, onClose }: DigitalBuddyChatProps) {
   const [llmStatus, setLlmStatus] = useState<DigitalBuddyStatus | null>(null);
 
   useEffect(() => {
-    if (!isOpen) {
-      return;
-    }
-
     digitalBuddyApi.getStatus().then(setLlmStatus).catch(() => setLlmStatus(null));
-  }, [isOpen]);
+  }, []);
 
   useEffect(() => {
     if (messages.length === 0) {
@@ -61,26 +56,6 @@ export function DigitalBuddyChat({ isOpen, onClose }: DigitalBuddyChatProps) {
       ]);
     }
   }, [language, messages.length]);
-
-  if (!isOpen) {
-    return null;
-  }
-
-  const llmSubtitle =
-    llmStatus?.model_ready
-      ? buddyModelReadyLabel(language, llmStatus.llm_model)
-      : llmStatus?.llm_enabled
-        ? buddyModelLoadingMessages[language]
-        : buddySubtitle[language];
-
-  const loadingLabel =
-    llmStatus?.model_ready
-      ? buddyModelGeneratingLabel(language)
-      : buddyLoadingLabel(language, pendingMessage || messageText);
-
-  const handleLanguageChange = (nextLanguage: BuddyLanguage) => {
-    setLanguage(nextLanguage);
-  };
 
   const handleSendMessage = async (textOverride?: string) => {
     const trimmedMessage = (textOverride ?? messageText).trim();
@@ -137,7 +112,7 @@ export function DigitalBuddyChat({ isOpen, onClose }: DigitalBuddyChatProps) {
   };
 
   useEffect(() => {
-    if (!isOpen || !pendingPrompt || isLoading) {
+    if (!pendingPrompt || isLoading) {
       return;
     }
 
@@ -145,7 +120,23 @@ export function DigitalBuddyChat({ isOpen, onClose }: DigitalBuddyChatProps) {
     clearPendingPrompt();
     void handleSendMessage(prompt);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- only react to pendingPrompt
-  }, [isOpen, pendingPrompt]);
+  }, [pendingPrompt]);
+
+  const llmSubtitle =
+    llmStatus?.model_ready
+      ? buddyModelReadyLabel(language, llmStatus.llm_model)
+      : llmStatus?.llm_enabled
+        ? buddyModelLoadingMessages[language]
+        : buddySubtitle[language];
+
+  const loadingLabel =
+    llmStatus?.model_ready
+      ? buddyModelGeneratingLabel(language)
+      : buddyLoadingLabel(language, pendingMessage || messageText);
+
+  const handleLanguageChange = (nextLanguage: BuddyLanguage) => {
+    setLanguage(nextLanguage);
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
